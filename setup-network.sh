@@ -30,7 +30,7 @@ echo "[INFO]: Processing network setup for OS Version: $OS_VERSION"
 apIpDefault="10.0.0.1"
 apDhcpRangeDefault="10.0.0.50,10.0.0.150,12h"
 apSetupIptablesMasqueradeDefault="iptables -t nat -A POSTROUTING -s 10.0.0.0/24 ! -d 10.0.0.0/24 -j MASQUERADE"
-apCountryCodeDefault="IN"
+apCountryCodeDefault="US"
 apChannelDefault="1"
 
 apIp="$apIpDefault"
@@ -674,7 +674,7 @@ $apPasswordConfig
 country_code=$apCountryCode
 interface=${apInterfaceName}
 # Use the 2.4GHz band (I think you can use in ag mode to get the 5GHz band as well, but I have not tested this yet)
-hw_mode=g
+hw_mode=a
 # Accept all MAC addresses
 macaddr_acl=0
 # Use WPA authentication
@@ -687,12 +687,12 @@ wpa=2
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
-#driver=nl80211
+driver=nl80211
 # I commented out the lines below in my implementation, but I kept them here for reference.
 # Enable WMM
-#wmm_enabled=1
+wmm_enabled=1
 # Enable 40MHz channels with 20ns guard interval
-#ht_capab=[HT40][SHORT-GI-20][DSSS_CCK-40]
+vht_capab=[HT40+]
 EOF
 
 sed -i 's/^#DAEMON_CONF=.*$/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/' /etc/default/hostapd
