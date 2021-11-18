@@ -685,14 +685,11 @@ ignore_broadcast_ssid=0
 wpa=2
 # Use a pre-shared key
 wpa_key_mgmt=WPA-PSK
-wpa_pairwise=TKIP
+wpa_pairwise=TKIP CCMP
 rsn_pairwise=CCMP
 driver=nl80211
-# I commented out the lines below in my implementation, but I kept them here for reference.
 # Enable WMM
-wmm_enabled=1
-# Enable 40MHz channels with 20ns guard interval
-vht_capab=[HT40+]
+wmm_enabled=0
 EOF
 
 sed -i 's/^#DAEMON_CONF=.*$/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/' /etc/default/hostapd
