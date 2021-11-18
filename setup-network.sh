@@ -668,6 +668,8 @@ dhcp-range=$apDhcpRange
 EOF
 
 cat > /etc/hostapd/hostapd.conf <<EOF
+ctrl_interface=/var/run/hostapd
+ctrl_interface_group=0
 channel=$apChannel
 ssid=$apSsid
 $apPasswordConfig
@@ -688,8 +690,11 @@ wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP CCMP
 rsn_pairwise=CCMP
 driver=nl80211
+# I commented out the lines below in my implementation, but I kept them here for reference.
 # Enable WMM
 wmm_enabled=0
+# Enable 40MHz channels with 20ns guard interval
+#ht_capab=[HT40][SHORT-GI-20][DSSS_CCK-40]
 EOF
 
 sed -i 's/^#DAEMON_CONF=.*$/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/' /etc/default/hostapd
