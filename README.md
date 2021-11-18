@@ -1,4 +1,4 @@
-# Hotspot on single WiFi chip of Raspberry Pi - ZeroW / 3B / 3B+ / 4B
+# STA-AP :: Raspberry Pi - ZeroW / 3B / 3B+ / 4B
 
 Script to  automate and setup Access Point and WiFi Client/Station network on the single WiFi chip of Raspberry Pi - ZeroW / 3B / 3B+ / 4B.
 
@@ -75,18 +75,6 @@ default in-built WiFi interface name as: 'wlan0'.
 Example cleanup:
 ----------------------------------------------------------------------------
 <pre><code>sudo ./setup-network.sh --clean</code></pre>
-
-----------------------------------------------------------------------------
-Example installation without upgrade: 
-----------------------------------------------------------------------------
-<pre><code>sudo ./setup-network.sh --install --ap-ssid="abc-1" --ap-password="password@1" --ap-password-encrypt 
---ap-country-code="IN" --ap-ip-address="192.168.0.1" --wifi-interface="wlan0"</code></pre>
-
-----------------------------------------------------------------------------
-Example installation with upgrade: 
-----------------------------------------------------------------------------
-<pre><code>sudo ./setup-network.sh --install-upgrade --ap-ssid="abc-1" --ap-password="password@1" --ap-password-encrypt 
---ap-country-code="IN" --ap-ip-address="192.168.0.1" --wifi-interface="wlan0"</code></pre>
 
 Example installation without upgrade (via curl): 
 ----------------------------------------------------------------------------
